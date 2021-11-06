@@ -1,0 +1,12 @@
+services:
+        code-server:
+                container_name: code-server
+                image: 'codercom/code-server:latest'
+                restart: always
+                ports:
+                        - "8080:8080"
+                volumes:
+                        - "$HOME/.config:/home/coder/.config"
+                        - "$PWD:/home/coder/project"
+                environment:
+                        - DOCKER_USER=$USER
